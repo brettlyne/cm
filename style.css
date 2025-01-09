@@ -62,3 +62,21 @@ li {
 video {
   border: 1px solid black;
 }
+
+.navbar {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  a {
+    color: var(--color-nav-item);
+    font-size: 0.8125rem;
+    cursor: pointer;
+    &.active {
+      color: var(--color-nav-item-active);
+    }
+    &:hover {
+      color: var(--color-nav-item-hover);
+    }
+  }
+}
