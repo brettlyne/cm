@@ -1,8 +1,18 @@
 /* VARIABLES */
+/* skipping the non-semantic color naming here since we don't have a larger system context */
+:root {
+  --color-text: #000000;
+  --color-bg: #ffffff;
+  --color-nav-item: #929292;
+  --color-nav-item-active: var(--color-text);
+  --color-nav-item-hover: #416ea3;
+  --color-nav-rule: #d6d6d6;
+}
 
-/* TYPOGRAPHY */
+/* BASE TYPOGRAPHY */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+  font-family: "SF Pro", -apple-system, BlinkMacSystemFont, Helvetica,
+    sans-serif;
   line-height: 1.4;
 }
 h1,
@@ -13,28 +23,42 @@ h5,
 h6 {
   font-weight: 400;
 }
-h2 {
-  font-size: 2rem;
-}
-h3 {
-  font-size: 1.5rem;
+
+/* PAGE LAYOUT */
+body {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-/* LAYOUT */
+/* ELEMENTS */
 h1 {
+  font-size: 2rem;
   margin-top: 3rem;
   margin-bottom: 0.25rem;
 }
 h2 {
+  font-size: 2rem;
   margin-top: 2rem;
   margin-bottom: 0.25rem;
 }
 h3 {
+  font-size: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 0.25rem;
 }
-
-/* ELEMENTS */
+p {
+  margin-bottom: 1rem;
+  max-width: 40rem;
+}
+ul {
+  padding-left: 1rem;
+  max-width: 40rem;
+}
+li {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
 video {
   border: 1px solid black;
 }
