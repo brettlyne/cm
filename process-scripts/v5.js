@@ -3,7 +3,7 @@
   const clocks = [];
 
   const buildNavBar = () => {
-    const navBar = document.querySelector(".final");
+    const navBar = document.querySelector(".v5");
     navItems = document.createElement("div");
     navItems.classList.add("nav-items");
     navBar.appendChild(navItems);
@@ -14,8 +14,8 @@
         data.cities.forEach((city) => {
           const navItem = document.createElement("div");
           navItem.classList.add("nav-item");
-
           const time = document.createElement("div");
+          time.textContent = "00:00";
           time.classList.add("navbar-clock");
           clocks.push({
             element: time,

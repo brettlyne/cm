@@ -3,58 +3,181 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="scripts.js"></script>
+    <script src="process-scripts/v1.js"></script>
+    <script src="process-scripts/v2.js"></script>
+    <script src="process-scripts/v3.js"></script>
+    <script src="process-scripts/v4.js"></script>
+    <script src="process-scripts/v5.js"></script>
     <title>cm</title>
   </head>
   <body>
     <h1>Code Challenge</h1>
-    <p>Recreate the UI in this video using Vanillajs, HTML, and CSS.</p>
-    
+
+    <p>
+      You're building an interactive editorial piece about cities around the
+      world, and want to include a navigation component that will allow the
+      reader to learn about a different city. Create a simple, minimalist
+      navigation bar based on the video example and use the JSON file provided.
+      Match the design as closely as you can. The navigation bar should have a
+      sliding bar that indicates a selected item, and that bar should resize
+      itself to match the width of the selected item text.
+    </p>
     <video width="100%" controls>
-      <source src="assets/slider-nav.mp4" type="video/mp4">
+      <source src="assets/slider-nav.mp4" type="video/mp4" />
     </video>
 
-    <h3>Scenario</h3>
-    <p>
-      You're building an interactive editorial piece about cities around the world, and want to include a navigation component that will allow the reader to learn about a different city.
-      Create a simple, minimalist navigation bar based on the video example and use the JSON file provided. Match the design as closely as you can. The navigation bar should have a sliding bar that indicates a selected item, and that bar should resize itself to match the width of the selected item text.
-      <ul>
-        <li>On resize, the sliding indicator bar should update its position and size to match text.</li>
-        <li>Code should be optimized for Safari. Support for other browsers is not necessary.</li>
-        <li>Please limit library/framework usage (Compilers are permissible but No React/Vue,&nbsp;please).</li>
-        <li>ES6 and CSS as much as possible. SASS is permissible.</li>
-        <li>You will have 24 hours to complete the exercise.</li>
-      </ul>
-    </p>
-    <h3>Bonus ⭐ ⭐ ⭐</h3>
-    <p>Display the current time of the selected city. You have creative license on how this should look and behave.</p>
+    <h3>Instructions</h3>
+    <ul>
+      <li>
+        On resize, the sliding indicator bar should update its position and size
+        to match text.
+      </li>
+      <li>
+        Code should be optimized for Safari. Support for other browsers is not
+        necessary.
+      </li>
+      <li>
+        Please limit library/framework usage (Compilers are permissible but No
+        React/Vue,&nbsp;please).
+      </li>
+      <li>ES6 and CSS as much as possible. SASS is permissible.</li>
+      <li>You will have 24 hours to complete the exercise.</li>
+      <li>
+        ⭐ Bonus ⭐ Display the current time of the selected city. You have
+        creative license on how this should look and behave.
+      </li>
+    </ul>
 
     <h2>Finished Navigation Bar</h2>
+
+    <nav class="navbar navbar-with-clock final"></nav>
+
+    <h2>To confirm with design...</h2>
+    <ul>
+      <li>
+        for this component, are we OK that non-active labels don't pass WCAG AA
+        (or the newer APCA) contrast requirements? see:
+        <a
+          target="_blank"
+          href="https://contrast.tools?tab=apca&text=9a9a9a&background=ffffff"
+          >https://contrast.tools?tab=apca&text=9a9a9a&background=ffffff</a
+        >
+      </li>
+      <li>
+        should we explore longer animation durations when the active indicator
+        is moving further? or spring physics like native UI perhaps?
+      </li>
+      <li>
+        on smaller screens we can switch to a different control. maybe a
+        dropdown?
+      </li>
+    </ul>
 
     <h2>Process</h2>
     <ul>
       <li>review the challenge</li>
-      <li>create GitHub repo: <a target="_blank" href="https://github.com/brettlyne/cm">https://github.com/brettlyne/cm</a></li>
+      <li>
+        create GitHub repo:
+        <a target="_blank" href="https://github.com/brettlyne/cm"
+          >https://github.com/brettlyne/cm</a
+        >
+      </li>
       <li>set up fonts & document the challenge</li>
-      <li>commit and confirm gh-pages works: <a target="_blank" href="https://brettlyne.github.io/cm/">https://brettlyne.github.io/cm/</a></li>
-      <li>use a video screenshot to grab color / typography values
+      <li>
+        commit and confirm gh-pages works:
+        <a target="_blank" href="https://brettlyne.github.io/cm/"
+          >https://brettlyne.github.io/cm/</a
+        >
+      </li>
+      <li>
+        use a video screenshot to grab color / typography values
         <ul>
-          <li>on a real project these would be already available as code presumably</li>
+          <li>
+            on a real project these would be already available as code
+            presumably
+          </li>
           <li>also had to install SF Pro from Apple's site</li>
         </ul>
       </li>
     </ul>
 
-    <img src="assets/colors-and-fonts.png" alt="colors and fonts reference" width="100%">
+    <img
+      src="assets/colors-and-fonts.png"
+      alt="colors and fonts reference"
+      width="100%"
+    />
 
     <ul>
       <li>create css vars for colors</li>
       <li>create first pass of script to populate navigation bar</li>
     </ul>
 
-    <div class="navbar"></div>
+    <nav class="navbar v1"></nav>
 
+    <ul>
+      <li>refine outer padding / positioning</li>
+      <li>
+        create folder <em>/process-scripts</em>, and v1.js, v2.js, etc to
+        document process
+      </li>
+      <li>handle active state</li>
+      <li>create horizontal rule element and child within</li>
+      <li>set inital position indicator, animate on click</li>
+      <li>match the animation curves and timing from video</li>
+    </ul>
+
+    <nav class="navbar v2"></nav>
+
+    <ul>
+      <li>
+        code changes don't effect behavior, see
+        <a href="process-scripts/v3.js">process-scripts/v3.js</a>
+      </li>
+      <li>
+        refactor with closure so we're not adding everything to global scope
+      </li>
+      <li>
+        rewrite so we're preserving references instead of querying dom on every
+        click
+      </li>
+    </ul>
+
+    <nav class="navbar v3"></nav>
+
+    <ul>
+      <li>add resize event listener</li>
+      <li>
+        cheat a bit during the resize so we're not constantly recalculating
+        position
+      </li>
+    </ul>
+
+    <nav class="navbar v4"></nav>
+
+    <ul>
+      <li>explore some clock options in Figma (went with B)</li>
+    </ul>
+
+    <img
+      src="assets/clock-options.png"
+      alt="clock design explorations"
+      width="100%"
+    />
+
+    <ul>
+      <li>add timezone data to navigation.json</li>
+      <li>add clocks & set the time</li>
+    </ul>
+
+    <nav class="navbar navbar-with-clock v5"></nav>
+
+    <h2>The End! 🥳</h2>
+    <p>
+      Thanks for checking it out. Let me know if you have any feedback or
+      questions.
+    </p>
   </body>
 </html>

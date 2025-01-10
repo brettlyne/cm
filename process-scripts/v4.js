@@ -1,9 +1,8 @@
 {
   let navItems, underline, active;
-  const clocks = [];
 
   const buildNavBar = () => {
-    const navBar = document.querySelector(".final");
+    const navBar = document.querySelector(".v4");
     navItems = document.createElement("div");
     navItems.classList.add("nav-items");
     navBar.appendChild(navItems);
@@ -12,21 +11,8 @@
       .then((response) => response.json())
       .then((data) => {
         data.cities.forEach((city) => {
-          const navItem = document.createElement("div");
-          navItem.classList.add("nav-item");
-
-          const time = document.createElement("div");
-          time.classList.add("navbar-clock");
-          clocks.push({
-            element: time,
-            timezone: city.timezone,
-          });
-
-          const link = document.createElement("a");
-          link.textContent = city.label;
-
-          navItem.appendChild(time);
-          navItem.appendChild(link);
+          const navItem = document.createElement("a");
+          navItem.textContent = city.label;
           navItem.addEventListener("click", () =>
             handleNavClick(city.section, navItem)
           );
@@ -42,12 +28,10 @@
         navRule.appendChild(underline);
         navBar.appendChild(navRule);
 
-        active = navItems.firstElementChild;
+        active = navBar.firstElementChild.firstElementChild;
         active.classList.add("active");
         positionUnderline();
         underline.classList.remove("loading");
-
-        updateClocks();
       });
   };
 
@@ -65,17 +49,9 @@
     underline.style.left = `${active.offsetLeft}px`;
   };
 
-  const updateClocks = () => {
-    clocks.forEach((clock) => {
-      clock.element.textContent = new Date().toLocaleTimeString("en-US", {
-        timeZone: clock.timezone,
-        hour12: false,
-        hour: "2-digit",
-        minute: "2-digit",
-      });
-    });
-  };
-  setInterval(updateClocks, 5000);
+  document.addEventListener("DOMContentLoaded", function () {
+    buildNavBar();
+  });
 
   let resizeTimeout;
   window.addEventListener("resize", () => {
@@ -88,9 +64,5 @@
       underline.classList.remove("loading");
       active.classList.remove("resizing");
     }, 200);
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    buildNavBar();
   });
 }
