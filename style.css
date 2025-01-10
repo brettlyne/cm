@@ -68,15 +68,16 @@ video {
   margin-bottom: 2rem;
   display: flex;
   justify-content: space-evenly;
-  a {
-    color: var(--color-nav-item);
-    font-size: 0.8125rem;
-    cursor: pointer;
-    &.active {
-      color: var(--color-nav-item-active);
-    }
-    &:hover {
-      color: var(--color-nav-item-hover);
-    }
-  }
+  padding: 0 1rem;
+}
+.navbar a {
+  color: var(--color-nav-item);
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+.navbar a.active {
+  color: var(--color-nav-item-active);
+}
+.navbar a:hover {
+  color: var(--color-nav-item-hover);
 }
